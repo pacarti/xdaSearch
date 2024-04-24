@@ -7,11 +7,11 @@ headers = {
 
 # 1st phase - constant link, 2nd phase - link from argument
 
-subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/' # page numer so that it goes to the last page
+subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-9999999' # page numer so that it goes to the last page
 
 res = requests.get(subforumLink, headers=headers)
 
-print(res.raise_for_status())
+# print(res.raise_for_status())
 
 
 subforumSoup = bs4.BeautifulSoup(res.text, 'html.parser')
