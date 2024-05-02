@@ -19,7 +19,8 @@ headers = {
 
 # 1st phase - constant link, 2nd phase - link from argument
 
-subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-9999999' # page numer so that it goes to the last page
+# subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-9999999' # page numer so that it goes to the last page
+subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-2' # page numer so that it goes to the last page
 
 res = requests.get(subforumLink, headers=headers)
 
@@ -32,22 +33,34 @@ phrase = 'wifi'
 
 subforumSoup = bs4.BeautifulSoup(res.text, 'html.parser') # <-- res.text - fetches text from CURRENT url(subforumlink in res variable as argument), that's why it is not updated in the loop
 
-linkElems = subforumSoup.select('a[data-xf-init="preview-tooltip"]') # <-- this is not overrighted in the loop so that is the problem
+linkElems = subforumSoup.select('a[data-xf-init="preview-tooltip"]') # <-- this is not overwritten in the loop so that is the problem
 
 # Search the selected phrase from this page:
 
-while not currentUrl.endswith('2'):
+while not currentUrl.endswith('page-1'):
 
     for linkElem in linkElems:
-        linkText = linkElem.getText()
+        '''linkText = linkElem.getText()
         if phrase in linkText:
-            print(linkText)
-        # print(linkElem.getText())
+            print(linkText)'''
+        print(linkElem.getText())
+
+    if currentUrl.endswith('page-1') == True:
+        break
+
 
     newNumOfSubpages = numOfSubpages(currentUrl) - 1
     currentUrl = urlRoot(currentUrl) + 'page-' + str(newNumOfSubpages)
-    linkElems = []
+
+
+    # linkElems = []
     # to debug
+
+    res = requests.get(currentUrl, headers=headers)
+
+    subforumSoup = bs4.BeautifulSoup(res.text, 'html.parser')
+    linkElems = subforumSoup.select('a[data-xf-init="preview-tooltip"]') 
+
 
 # TODO: Search the selected phrase from all pages
     # TODO: Print text from all pages to check if script searches them correctly.
