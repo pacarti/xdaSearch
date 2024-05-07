@@ -19,6 +19,8 @@ headers = {
 
 # 1st phase - constant link, 2nd phase - link from argument
 
+coreLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055'
+
 subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-9999999' # page numer so that it goes to the last page
 # subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-2' # page numer so that it goes to the last page
 
@@ -42,7 +44,11 @@ while not currentUrl.endswith('page-1'):
     for linkElem in linkElems:
         # linkText = linkElem.getText()
         if phrase in linkElem.getText():
-            print(linkElem.getText())
+            # print(linkElem.getText())
+            # Get result link:
+            resultLink = coreLink + linkElem.get('href')
+            
+            print(resultLink)    
         # print(linkElem.getText())
 
     if currentUrl.endswith('page-1') == True:
