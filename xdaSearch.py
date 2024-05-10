@@ -22,7 +22,7 @@ headers = {
 coreLink = 'https://xdaforums.com'
 
 # subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-9999999' # page numer so that it goes to the last page
-subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-9999999' # page numer so that it goes to the last page
+
 subforumLink = sys.argv[1] + '/page-9999999'
 # subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-2' # page numer so that it goes to the last page
 
