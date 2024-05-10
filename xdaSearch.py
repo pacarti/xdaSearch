@@ -10,7 +10,7 @@ def urlRoot(url):
     urlRoot = urlSplitList[0]
     return urlRoot
 
-import requests, bs4, webbrowser
+import requests, bs4, webbrowser, sys
 
 # Set headers:
 headers = {
@@ -21,7 +21,9 @@ headers = {
 
 coreLink = 'https://xdaforums.com'
 
+# subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-9999999' # page numer so that it goes to the last page
 subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-9999999' # page numer so that it goes to the last page
+subforumLink = sys.argv[1] + '/page-9999999'
 # subforumLink = 'https://xdaforums.com/f/redmi-9-power-9t.12055/page-2' # page numer so that it goes to the last page
 
 res = requests.get(subforumLink, headers=headers)
@@ -29,7 +31,8 @@ res = requests.get(subforumLink, headers=headers)
 currentUrl = res.url
 
 
-phrase = 'wifi'
+# phrase = 'wifi'
+phrase = sys.argv[2]
 
 # print(res.raise_for_status())
 
@@ -69,14 +72,14 @@ while not currentUrl.endswith('page-1'):
     linkElems = subforumSoup.select('a[data-xf-init="preview-tooltip"]') 
 
 
-# TODO: Search the selected phrase from all pages
-    # TODO: Print text from all pages to check if script searches them correctly.
+# Search the selected phrase from all pages - done
+    # Print text from all pages to check if script searches them correctly. - done
 
 # while not url.endswith(''):
     # prevLink = soup.select('li.pageNav-page.pageNav-page--earlier')
     # Easier way will be to get current page url and subtract 1
 
 
-# TODO: Open the webbrowser on distinguished websites 
+# Open the webbrowser on distinguished websites - done 
 
 # TODO: Change static link and phrase to dynamic
