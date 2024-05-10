@@ -82,4 +82,5 @@ while not currentUrl.endswith('page-1'):
 
 # Open the webbrowser on distinguished websites - done 
 
-# TODO: Change static link and phrase to dynamic
+# Change static link and phrase to dynamic -done
+# TODO: Make idiotproofness
