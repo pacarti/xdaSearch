@@ -39,6 +39,11 @@ if subforumLink[22] != 'f': # Checks if there is a 'f' on that position to deter
 if len(sys.argv) < 3:
     print("Please specify a search phrase.")
     exit()
+elif len(sys.argv) > 3:
+    print("Too much arguments!")
+    print("Syntax: python3 xdaSearch.py <XDASearch forum URL> <phrase>")
+    exit()
+
 
 phrase = sys.argv[2]
 
