@@ -7,3 +7,5 @@ The script allows to search through the subforums(e.g. of particular phone model
 
 <h2>How to use</h2>
 <code>python3 xdaSearch.py [XDASearch subforum URL] [phrase that you want to find]</code>
+
+<!--added some test comment>
